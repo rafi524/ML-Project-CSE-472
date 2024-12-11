@@ -27,7 +27,7 @@ class WordDataset(data.Dataset):
         img_names = [line.split(",")[0] for line in label_file]
         img_paths = [os.path.join(img_dir, img_name) for img_name in img_names]
         words = [line[len(img_names[0])+1:].strip() for line in label_file]
-
+        print("Number of words: ", len(words))
         filtered_words = []
         filtered_img_paths = []
         for i, word in enumerate(words):
