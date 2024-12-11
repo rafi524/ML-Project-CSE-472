@@ -14,7 +14,7 @@ teacher_data = {
 
 teacher_data = None
 variant = 'basic'
-epochs = 100
+epochs = 10
 use_attention = False
 
 student  = Student(graphemes_dict, teacher_data=teacher_data, use_attention=use_attention, variant=variant)
