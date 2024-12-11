@@ -8,7 +8,7 @@ data_transform_aug = A.Compose([
         A.Blur(blur_limit=3, p=0.25),
         A.OpticalDistortion(p=0.25),
         A.GridDistortion(p=0.25),
-        A.ElasticTransform(alpha=0.5, sigma=0, alpha_affine=0, p=0.25),
+        A.ElasticTransform(alpha=0.5, sigma=1, alpha_affine=0, p=0.25),
         A.GaussNoise(var_limit=(120.0, 135.0), mean=0, always_apply=False, p=0.25),       
         ToTensorV2(),
     ])
@@ -18,7 +18,7 @@ data_transform_aug_synthetic = A.Compose([
         A.Blur(blur_limit=3, p=0.5),
         A.OpticalDistortion(p=0.5),
         A.GridDistortion(p=0.5),
-        A.ElasticTransform(alpha=0.5, sigma=0, alpha_affine=0, p=0.5),
+        A.ElasticTransform(alpha=0.5, sigma=1, alpha_affine=0, p=0.5),
         A.GaussNoise(var_limit=(120.0, 135.0), mean=0, always_apply=False, p=0.5),       
         ToTensorV2(),
     ])
