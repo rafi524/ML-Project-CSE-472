@@ -60,5 +60,5 @@ class WordDataset(data.Dataset):
         else:
             image = image.transpose(2, 0, 1)
         
-        print(f'idx: {idx}, image: {image.shape}, label: {self.data[idx][1]}')    
+           
         return image, self.data[idx][1]
