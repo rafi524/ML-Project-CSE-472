@@ -28,21 +28,29 @@ data_transform_no_aug = A.Compose([
     ])
 
 def get_word_loader(datasets, augment=True, batch_size=256, num_workers=1, shuffle=True):
+    print(f"Datasets: {datasets}")
+    print(f"Augment: {augment}, Batch size: {batch_size}, Num workers: {num_workers}, Shuffle: {shuffle}")
     dataset_objects = []
     for dataset in datasets:
         img_dir, label_file_path = dataset['img_dir'], dataset['label_file_path']
         virtual_size = -1 if 'virtual_size' not in dataset else dataset['virtual_size']
+        print(f"Processing dataset: img_dir={img_dir}, label_file_path={label_file_path}, virtual_size={virtual_size}")
 
         if augment:
             if 'synthetic' in dataset and dataset['synthetic']:
                 transform = data_transform_aug_synthetic
+                print("Using synthetic augmentation")
             else:
                 transform = data_transform_aug
+                print("Using regular augmentation")
         else:
             transform = data_transform_no_aug
+            print("No augmentation")
 
         dataset_objects.append(WordDataset(img_dir, label_file_path, transform=transform, virtual_size=virtual_size))
 
     merged_dataset = ConcatDataset(dataset_objects)
     word_loader = DataLoader(merged_dataset, batch_size=batch_size, shuffle=shuffle, num_workers=num_workers)
+    print(f"Total datasets merged: {len(dataset_objects)}")
+    print(f"Total batches: {len(word_loader)}")
     return word_loader, len(word_loader)
