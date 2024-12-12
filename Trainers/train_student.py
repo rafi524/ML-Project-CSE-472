@@ -22,14 +22,14 @@ student  = Student(graphemes_dict, teacher_data=teacher_data, use_attention=use_
 train_datasets = [
         {
             'img_dir': '/kaggle/input/ml-project-preprocess/curated_dataset/train/images',
-            'label_file_path': '/kaggle/input/ml-project-preprocess/curated_dataset/train/labels.xlsx',
+            'label_file_path': '/kaggle/input/ml-project-preprocess/curated_dataset/train/labels.csv',
         }
     ]
 
 val_datasets = [
         {
             'img_dir': '/kaggle/input/ml-project-preprocess/curated_dataset/val/images',
-            'label_file_path': '/kaggle/input/ml-project-preprocess/curated_dataset/val/labels.xlsx',
+            'label_file_path': '/kaggle/input/ml-project-preprocess/curated_dataset/val/labels.csv',
         }
        
     ]
