@@ -14,22 +14,22 @@ teacher_data = {
 
 teacher_data = None
 variant = 'basic'
-epochs = 100
+epochs = 150
 use_attention = False
 
 student  = Student(graphemes_dict, teacher_data=teacher_data, use_attention=use_attention, variant=variant)
 
 train_datasets = [
         {
-            'img_dir': '/kaggle/input/ml-project-472/compress/merge_100',
-            'label_file_path': '/kaggle/input/ml-project-472/compress/change_100.csv',
+            'img_dir': '/kaggle/input/ml-project-preprocess/curated_dataset/train/images',
+            'label_file_path': '/kaggle/input/ml-project-preprocess/curated_dataset/train/labels.xlsx',
         }
     ]
 
 val_datasets = [
         {
-            'img_dir': '/kaggle/input/ml-project-472/compress/merge_1',
-            'label_file_path': '/kaggle/input/ml-project-472/compress/change_1.csv'
+            'img_dir': '/kaggle/input/ml-project-preprocess/curated_dataset/val/images',
+            'label_file_path': '/kaggle/input/ml-project-preprocess/curated_dataset/val/labels.xlsx',
         }
        
     ]
