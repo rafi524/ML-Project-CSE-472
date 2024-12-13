@@ -247,14 +247,7 @@ class Student:
         self.metrics = json.load(open(metrics_ckt, 'r'))
         self.model.eval()
 
-    #  def validate(slf, epoch, val_loader, save_best=True):
-    #     slf.init_epoch(epoch, train=False)
-    #     with torch.no_grad():
-    #         print("Validating:")
-    #         for images, words in tqdm(val_loader):
-    #             probs, labels, loss = slf.forward(images, words)
-    #             slf.save_mini_batch_results(probs, labels)
-    #         slf.print_stats('Validation', save_best=save_best)
+
     def test(slf, test_loader, save_best=False, save_path='test_results.csv'):
         """
         Test the model and save predictions and labels into a CSV file.
