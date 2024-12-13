@@ -225,10 +225,23 @@ class Student:
         torch.save(slf.scheduler.state_dict(), slf.scheduler_ckt)
         json.dump(slf.metrics, open(slf.metrics_ckt, 'w'), indent=4)
 
+#  def load_checkpoint(slf):
+#         slf.model.load_state_dict(torch.load(slf.model_ckt))
+#         slf.optimizer.load_state_dict(torch.load(slf.optimizer_ckt))
+#         slf.scheduler.load_state_dict(torch.load(slf.scheduler_ckt))
+#         slf.metrics = json.load(open(slf.metrics_ckt, 'r'))
+
     def load_model(self, model_path):
         """
         Load a pre-trained model from the specified path.
         """
-        checkpoint = torch.load(model_path)
-        self.model.load_state_dict(checkpoint['model_state_dict'])
-        print(f"Model loaded from {model_path}")
+        model_ckt = os.path.join(model_path, 'best_model.pt')
+        optimizer_ckt = os.path.join(model_path, 'optimizer.pt')
+        scheduler_ckt = os.path.join(model_path, 'scheduler.pt')
+        metrics_ckt = os.path.join(model_path, 'metrics.json')
+
+        self.model.load_state_dict(torch.load(model_ckt))
+        self.optimizer.load_state_dict(torch.load(optimizer_ckt))
+        self.scheduler.load_state_dict(torch.load(scheduler_ckt))
+        self.metrics = json.load(open(metrics_ckt, 'r'))
+       
