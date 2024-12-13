@@ -10,6 +10,14 @@ def print_metric(name, value, round_digits=4):
     
 def accuracy_metrics(y_true, y_pred, n_classes, target_names, final_action='print'):
     try:
+        # save y_true and y_pred to a file
+        with open('y_true.txt', 'w') as f:
+            for item in y_true:
+                f.write("%s\n" % item)
+        with open('y_pred.txt', 'w') as f:
+            for item in y_pred:
+                f.write("%s\n" % item)
+                
         report = classification_report(y_true, y_pred, labels=np.arange(1, n_classes), 
                                     zero_division=0, output_dict=True, 
                                     target_names=target_names)
