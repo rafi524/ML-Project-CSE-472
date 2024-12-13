@@ -23,13 +23,19 @@ train_datasets = [
         {
             'img_dir': '/kaggle/working/curated_dataset/train/images',
             'label_file_path': '/kaggle/working/curated_dataset/train/labels.csv',
-        }
-    ]
-
-val_datasets = [
+        },
         {
             'img_dir': '/kaggle/working/curated_dataset/val/images',
             'label_file_path': '/kaggle/working/curated_dataset/val/labels.csv',
+        },
+        
+
+    ]
+
+val_datasets = [
+       {
+            'img_dir': '/kaggle/working/curated_dataset/test/images',
+            'label_file_path': '/kaggle/working/curated_dataset/test/labels.csv',
         }
        
     ]
