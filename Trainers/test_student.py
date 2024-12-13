@@ -8,12 +8,12 @@ with open('Graphemes/Extracted/graphemes_bw_bnhtrd_syn.json', 'r') as f:
 
 student  = Student(graphemes_dict)
 
-test_imgs = ['Datasets/ILM/train', 'Datasets/ILM/val']
-test_labels = ['Datasets/ILM/train/labels.csv', 'Datasets/ILM/val/labels.csv']
+test_imgs = ['/kaggle/working/curated_dataset/test/images']
+test_labels = ['/kaggle/working/curated_dataset/test/labels.csv']
 
 test_loader, test_size = get_word_loader(test_imgs, test_labels, augment=False)
 
-model_path = '/content/drive/MyDrive/ML-Project-Files/SavedModels/student_VGG_hasteacher_ResNet18_045.pt'
+model_path = '/kaggle/working/ML-Project-CSE-472/ML-Project-Files/SavedModels/teacher_ResNet18_135.pt'
 
 student.load_model(model_path)
 student.validate(1, test_loader, save_best=False)
