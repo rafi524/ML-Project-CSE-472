@@ -18,7 +18,7 @@ test_datasets = [
 test_loader, test_size = get_word_loader(test_datasets, augment=False)
 print(f"Test data loaded. Size: {test_size}")
 
-model_path = '/kaggle/working/ML-Project-CSE-472/ML-Project-Files/SavedModels/teacher_ResNet18_135.pt'
+model_path = '/kaggle/working/ML-Project-CSE-472/ML-Project-Files/Checkpoints/student_VGG_noteacher_basic'
 
 student.load_model(model_path)
 student.validate(1, test_loader, save_best=False)
