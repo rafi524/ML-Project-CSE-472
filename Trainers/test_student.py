@@ -21,4 +21,4 @@ print(f"Test data loaded. Size: {test_size}")
 model_path = '/kaggle/working/ML-Project-CSE-472/ML-Project-Files/Checkpoints/student_VGG_noteacher_basic'
 
 student.load_model(model_path)
-student.validate(1, test_loader, save_best=False)
+student.test(test_loader, save_best=False)

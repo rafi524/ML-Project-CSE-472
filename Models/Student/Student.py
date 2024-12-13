@@ -7,6 +7,7 @@ import os
 import shutil
 import warnings
 import json
+import pandas as pd
 
 from Graphemes.extract_graphemes import decode_prediction, decode_label, words_to_labels
 from .CRNN import CRNN
@@ -245,4 +246,48 @@ class Student:
         # self.scheduler.load_state_dict(torch.load(scheduler_ckt))
         self.metrics = json.load(open(metrics_ckt, 'r'))
         self.model.eval()
-       
+
+    #  def validate(slf, epoch, val_loader, save_best=True):
+    #     slf.init_epoch(epoch, train=False)
+    #     with torch.no_grad():
+    #         print("Validating:")
+    #         for images, words in tqdm(val_loader):
+    #             probs, labels, loss = slf.forward(images, words)
+    #             slf.save_mini_batch_results(probs, labels)
+    #         slf.print_stats('Validation', save_best=save_best)
+def test(slf, test_loader, save_best=False, save_path='test_results.csv'):
+    """
+    Test the model and save predictions and labels into a CSV file.
+    
+    Args:
+        slf: The model instance containing the testing logic.
+        test_loader: The data loader for test data.
+        save_best: Whether to save the best results.
+        save_path: File path to save the predictions and labels.
+    """
+    slf.init_epoch(1, train=False)
+    results = {'true_words': [], 'pred_words': []}
+    
+    with torch.no_grad():
+        print("Testing:")
+        for images, words in tqdm(test_loader):
+            probs, labels, loss = slf.forward(images, words)
+            slf.save_mini_batch_results(probs, labels)
+        
+        # Collect decoded predictions and labels for saving
+        results['true_words'] = slf.decoded_labels
+        results['pred_words'] = slf.decoded_preds
+
+        # Save results to a CSV file
+        results_df = pd.DataFrame(results)
+        results_df.to_csv(save_path, index=False)
+
+        slf.print_samples()
+        slf.print_stats('Test', save_best=save_best)
+        print(f"Test results saved to {save_path}")
+
+
+
+
+            
+
