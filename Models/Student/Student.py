@@ -241,7 +241,8 @@ class Student:
         metrics_ckt = os.path.join(model_path, 'metrics.json')
 
         self.model.load_state_dict(torch.load(model_ckt))
-        self.optimizer.load_state_dict(torch.load(optimizer_ckt))
-        self.scheduler.load_state_dict(torch.load(scheduler_ckt))
+        # self.optimizer.load_state_dict(torch.load(optimizer_ckt))
+        # self.scheduler.load_state_dict(torch.load(scheduler_ckt))
         self.metrics = json.load(open(metrics_ckt, 'r'))
+        self.model.eval()
        
