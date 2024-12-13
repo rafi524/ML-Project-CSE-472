@@ -8,10 +8,15 @@ with open('Graphemes/Extracted/graphemes_bw_bnhtrd_syn.json', 'r') as f:
 
 student  = Student(graphemes_dict)
 
-test_imgs = ['/kaggle/working/curated_dataset/test/images']
-test_labels = ['/kaggle/working/curated_dataset/test/labels.csv']
+test_datasets = [
+    {
+        'img_dir': '/kaggle/working/curated_dataset/test/images',
+        'label_file_path': '/kaggle/working/curated_dataset/test/labels.csv',
+    }
+]
 
-test_loader, test_size = get_word_loader(test_imgs, test_labels, augment=False)
+test_loader, test_size = get_word_loader(test_datasets, augment=False)
+print(f"Test data loaded. Size: {test_size}")
 
 model_path = '/kaggle/working/ML-Project-CSE-472/ML-Project-Files/SavedModels/teacher_ResNet18_135.pt'
 
