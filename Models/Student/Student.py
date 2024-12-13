@@ -229,7 +229,6 @@ class Student:
         """
         Load a pre-trained model from the specified path.
         """
-        # checkpoint = torch.load(model_path)
-        # self.model.load_state_dict(checkpoint['model_state_dict'])
-        # print(f"Model loaded from {model_path}")
+        checkpoint = torch.load(model_path)
+        self.model.load_state_dict(checkpoint['model_state_dict'])
         print(f"Model loaded from {model_path}")
