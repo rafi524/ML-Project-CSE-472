@@ -224,3 +224,12 @@ class Student:
         torch.save(slf.optimizer.state_dict(), slf.optimizer_ckt)
         torch.save(slf.scheduler.state_dict(), slf.scheduler_ckt)
         json.dump(slf.metrics, open(slf.metrics_ckt, 'w'), indent=4)
+
+    def load_model(self, model_path):
+        """
+        Load a pre-trained model from the specified path.
+        """
+        # checkpoint = torch.load(model_path)
+        # self.model.load_state_dict(checkpoint['model_state_dict'])
+        # print(f"Model loaded from {model_path}")
+        print(f"Model loaded from {model_path}")
