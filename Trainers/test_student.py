@@ -10,8 +10,8 @@ student  = Student(graphemes_dict)
 
 test_datasets = [
     {
-        'img_dir': '/kaggle/input/ml-project-472/Bangla_Wriitting_Converted/Bangla_Wriitting_Converted/all_converted_images',
-        'label_file_path': '/kaggle/input/ml-project-472/Bangla_Wriitting_Converted/Bangla_Wriitting_Converted/merged_converted.csv',
+        'img_dir': '/kaggle/input/ml-project-472/bangla-writing/bangla-writing/images',
+        'label_file_path': '/kaggle/input/ml-project-472/bangla-writing/bangla-writing/labels.csv',
     }
 ]
 
