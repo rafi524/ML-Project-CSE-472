@@ -9,16 +9,10 @@ with open('Graphemes/Extracted/graphemes_bw_bnhtrd_syn.json', 'r') as f:
 student  = Student(graphemes_dict)
 
 test_datasets = [
-     
-        {
-            'img_dir': '/kaggle/working/curated_dataset/train/images',
-            'label_file_path': '/kaggle/working/curated_dataset/train/labels.csv',
-        },
-        {
-            'img_dir': '/kaggle/working/curated_dataset/val/images',
-            'label_file_path': '/kaggle/working/curated_dataset/val/labels.csv',
-        },
-    
+      {
+            'img_dir': '/kaggle/working/curated_dataset/test/images',
+            'label_file_path': '/kaggle/working/curated_dataset/test/labels.csv',
+        }
 
 ]
 
