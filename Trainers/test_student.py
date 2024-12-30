@@ -11,7 +11,7 @@ student  = Student(graphemes_dict)
 test_datasets = [
       {      ''
             'img_dir': '/kaggle/input/bangla-writing/bangla-writing/bangla-writing/image',
-            'label_file_path': '/kaggle/input/bangla-writing/bangla-writing/bangla-writing/labels.csv',
+            'label_file_path': '/kaggle/input/bangla-writing/labels.csv',
         }
 
 ]
